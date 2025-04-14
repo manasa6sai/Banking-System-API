@@ -1,63 +1,113 @@
-### Objective
 
-Your assignment is to build an internal API for a fake financial institution using Python and FastAPI.
+# 🏦 FastAPI Banking API
 
-### Brief
+**Author:** Manasa Sai Karanam  
+**Framework:** FastAPI  
+**Status:** ✅ Completed  
+**API Docs:** Swagger UI Enabled  
+**Date:** April 2025
 
-While modern banks have evolved to serve a plethora of functions, at their core, banks must provide certain basic features. Today, your task is to build the basic HTTP API for one of those banks! Imagine you are designing a backend API for bank employees. It could ultimately be consumed by multiple frontends (web, iOS, Android etc).
+---
 
-### Tasks
+## 📘 Overview
 
-- Implement assignment using:
-  - Language: **Python**
-  - Framework: **FastAPI**
-- There should be API routes that allow them to:
-  - Create a new bank account for a customer, with an initial deposit amount. A
-    single customer may have multiple bank accounts.
-  - Transfer amounts between any two accounts, including those owned by
-    different customers.
-  - Retrieve balances for a given account.
-  - Retrieve transfer history for a given account.
-- Write tests for your business logic
+This is a production-ready **Banking API system** built with **FastAPI**, simulating a backend for internal operations at a financial institution. It provides endpoints for managing customers, accounts, and transfers, and includes administrative routes for full system visibility.
 
-Feel free to pre-populate your customers with the following:
+---
 
-```json
-[
-  {
-    "id": 1,
-    "name": "Arisha Barron"
-  },
-  {
-    "id": 2,
-    "name": "Branden Gibson"
-  },
-  {
-    "id": 3,
-    "name": "Rhonda Church"
-  },
-  {
-    "id": 4,
-    "name": "Georgina Hazel"
-  }
-]
+## 🚀 Features
+
+### 👤 Customer Operations
+- `POST /customers/create` - Create a new customer
+
+### 💼 Account Operations
+- `POST /accounts/create` - Create an account with initial deposit
+- `GET /accounts/{customer_id}/accounts` - Retrieve all accounts for a customer
+- `GET /accounts/{account_id}/balance` - Get current balance of an account
+- `GET /accounts/{account_id}/transfers` - View all transfers related to an account
+
+### 🔁 Transfer Operations
+- `POST /transfers/` - Make a transfer between any two accounts
+
+### 🛠️ Admin Routes
+- `GET /admin/` - Welcome message for admin
+- `GET /admin/customers` - List all customers
+- `GET /admin/accounts` - List all accounts
+- `GET /admin/transfers` - List all transfers
+
+---
+
+## ⚙️ Tech Stack
+
+- **Language:** Python
+- **Framework:** FastAPI
+- **ASGI Server:** Uvicorn
+- **Testing:** Pytest
+- **Docs:** Swagger UI (`/docs`), Redoc (`/redoc`)
+
+---
+
+## 📁 Project Structure
+
+```plaintext
+banking-api/
+├── main.py                  # FastAPI application
+├── models.py                # Pydantic schemas & SQLAlchemy models
+├── routes/                  # API route definitions
+│   ├── customers.py
+│   ├── accounts.py
+│   ├── transfers.py
+│   └── admin.py
+├── services.py              # Business logic
+├── database.py              # DB connection and initialization
+├── tests/                   # Unit and integration tests
+├── requirements.txt
+└── README.md
 ```
 
-You are expected to design any other required models and routes for your API.
+---
 
-### Evaluation Criteria
+## 🧪 Running the Application
 
-- **Python** best practices
-- Completeness: did you complete the features?
-- Correctness: does the functionality act in sensible, thought-out ways?
-- Maintainability: is it written in a clean, maintainable way?
-- Testing: is the system adequately tested?
-- Documentation: is the API well-documented?
+### 1. Clone and setup
+```bash
+git clone https://github.com/your-username/banking-api.git
+cd banking-api
+python -m venv venv
+source venv/bin/activate  # For Windows: venv\Scripts\activate
+pip install -r requirements.txt
+```
 
-### CodeSubmit
+### 2. Start FastAPI app
+```bash
+uvicorn main:app --reload
+```
 
-Please organize, design, test and document your code as if it were going into production - then push your changes to the master branch. After you have pushed your code, you may submit the assignment on the assignment page.
+### 3. Access API
+- Swagger: [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
+- Redoc: [http://127.0.0.1:8000/redoc](http://127.0.0.1:8000/redoc)
 
-All the best and happy coding,
+---
 
-The my Custom AI Team
+## 🧪 Running Tests
+```bash
+pytest tests/
+```
+
+---
+
+## 🧠 Future Scope
+
+- Add JWT-based authentication
+- Extend customer profile support
+- Add pagination and filtering to admin endpoints
+- Dockerize the entire setup for cloud deployment
+
+---
+
+## 📬 Contact
+
+For queries, reach out at  
+📧 **manasakaranam6199@gmail.com**
+
+---
