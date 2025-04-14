@@ -1,0 +1,24 @@
+HTTP Method: POST
+Endpoint: /accounts/create
+{
+  "customer_id": 1,
+  "customer_name": "Manasa Sai K",
+  "initial_deposit": 500.0
+}
+
+
+HTTP Method: POST
+Endpoint: /transfers/
+{
+  "source_account": 1,
+  "destination_account": 2,
+  "amount": 100.0
+}
+
+
+HTTP Method: GET
+Endpoint: /accounts/{account_id}/balance
+
+
+HTTP Method: GET
+Endpoint: /accounts/{account_id}/transfers
